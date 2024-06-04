@@ -1,35 +1,37 @@
-# Astro Starter Kit: Component Package
+# Astro SVG Icon
 
-This is a template for an Astro component library. Use this template for writing components to use in multiple projects or publish to NPM.
+This is a component that lets you add SVG icons to your Astro project using modern Web Standards. #UseThePlatform
+The component utilizes the SVG `<use>` tag, allowing the developer to include any external SVG asset, typically an icon for websites.
 
-```sh
-npm create astro@latest -- --template component
+## How to use
+
+```jsx
+---
+import Icon from 'astro-svg-icon';
+import { Calendar } from 'Calendar.svg';
+---
+
+<Icon src={Calendar.src} viewBox={`0 0 ${Calendar.width} ${Calendar.height}`} />
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/non-html-pages)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/non-html-pages)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/component/devcontainer.json)
+## Advantages
 
-## 🚀 Project Structure
+- 🚀 The image is loaded by the browser as an image, making caching possible
+- 💅 An inline SVG tag allows for flexible styling with CSS.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Limitations
 
-```text
-/
-├── index.ts
-├── src
-│   └── MyComponent.astro
-├── tsconfig.json
-├── package.json
+- The `id` of the SVG must be the same as the name of the file. For example:
+
+```html title="Calendar.svg"
+<!-- Calendar.svg -->
+<svg id="Calendar" ... />
 ```
 
-The `index.ts` file is the "entry point" for your package. Export your components in `index.ts` to make them importable from your package.
+## References
 
-## 🧞 Commands
+Read on to find out why it's useful.
 
-All commands are run from the root of the project, from a terminal:
+- https://kurtextrem.de/posts/svg-in-js
+- https://karolytorok.netlify.app/blog/styling-an-svg/
 
-| Command       | Action                                                                                                                                                                                                                           |
-| :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `npm link`    | Registers this package locally. Run `npm link my-component-library` in an Astro project to install your components                                                                                                               |
-| `npm publish` | [Publishes](https://docs.npmjs.com/creating-and-publishing-unscoped-public-packages#publishing-unscoped-public-packages) this package to NPM. Requires you to be [logged in](https://docs.npmjs.com/cli/v8/commands/npm-adduser) |
