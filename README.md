@@ -28,10 +28,11 @@ import { Calendar } from 'Calendar.svg';
 <svg id="Calendar" ... />
 ```
 
+Otherwise use the `reference` prop to specify the `id` of the sprite.
+
 ## References
 
 Read on to find out why it's useful.
 
 - https://kurtextrem.de/posts/svg-in-js
 - https://karolytorok.netlify.app/blog/styling-an-svg/
-
